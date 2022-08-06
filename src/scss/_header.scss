@@ -1,0 +1,83 @@
+.header {
+  min-height: 210px;
+  background: url("/images/bg-main-mobile.png");
+  position: relative;
+
+  &-card {
+    &-back {
+      width: 300px;
+      position: absolute;
+      right: 10px;
+      top: 1.5rem;
+      background: url("/images/bg-card-back.png");
+      border-radius: 10px;
+      height: 165px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      &-number {
+        text-align: right;
+        color: #fff;
+        margin-right: 2rem;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+      }
+    }
+
+    &-main {
+      width: 300px;
+      height: 165px;
+      background: url("/images/bg-card-front.png");
+      position: absolute;
+      top: 6.65rem;
+      left: 10px;
+      border-radius: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      backdrop-filter: blur(4px);
+
+      &-header {
+        margin: 1rem 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &-1 {
+          width: 30px;
+          height: 30px;
+          background: var(--white);
+          border-radius: 50%;
+        }
+
+        &-2 {
+          width: 15px;
+          height: 15px;
+          border: 1px solid var(--white);
+          border-radius: 50%;
+        }
+      }
+
+      &-number {
+        color: var(--white);
+        letter-spacing: 2px;
+        margin: 0 1.5rem 0.5rem;
+        text-align: center;
+      }
+
+      &-name {
+        display: flex;
+        font-size: 0.6rem;
+        justify-content: space-between;
+        color: var(--white);
+        text-transform: uppercase;
+        margin: 0 1.5rem;
+        letter-spacing: 2px;
+      }
+    }
+  }
+}

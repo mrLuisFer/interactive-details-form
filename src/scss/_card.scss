@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+
+  &-container {
+    padding: 6.5rem 1.1rem 1rem;
+  }
+
+  &-field {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      text-transform: uppercase;
+      color: var(--dark-violet);
+      display: block;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    input {
+      padding: 0.8rem 0.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--light-grayish-violet);
+      outline: none;
+      font-size: 1rem;
+
+      &::placeholder {
+        color: var(--dark-grayish-violet);
+        opacity: 0.5;
+        font-weight: 500;
+      }
+    }
+
+    &-flex {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+  }
+}
