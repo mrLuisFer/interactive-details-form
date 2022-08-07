@@ -64,9 +64,16 @@
 
       &-number {
         color: var(--white);
-        letter-spacing: 2px;
         margin: 0 1.5rem 0.5rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        p {
+          margin: 0;
+          flex: 1;
+          letter-spacing: 2px;
+        }
       }
 
       &-name {

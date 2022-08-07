@@ -16,15 +16,17 @@
     <div id="app">
       <header class="header">
         <div class="header-card-back">
-          <p class="header-card-back-number">000</p>
+          <p class="header-card-back-number" id="card-cvc">000</p>
         </div>
         <div class="header-card-main">
           <div class="header-card-main-header">
             <div class="header-card-main-header-1"></div>
             <div class="header-card-main-header-2"></div>
           </div>
-          <div class="header-card-main-number" id="card-number">
+          <div class="header-card-main-number">
+            <p id="card-number">
             0000 0000 0000 0000
+            </p>
           </div>
           <div class="header-card-main-name">
             <p id="card-name">jane appleseed</p>
@@ -44,6 +46,7 @@
               id="cardholder"
               placeholder="e.g. Jane Appleseed"
               autocomplete="off"
+              maxlength="18"
             />
           </div>
           <div class="form-field" id="field-number">
@@ -53,8 +56,7 @@
               autocomplete="off"
               name="cardnumber"
               id="cardnumber"
-              size="16"
-              maxlength="16"
+              maxlength="19"
               placeholder="e.g. 1234 5678 9123 0000"
             />
           </div>
@@ -68,7 +70,6 @@
                   name="month"
                   id="month"
                   placeholder="MM"
-                  size="2"
                   maxlength="2"
                 />
                 <input
@@ -76,7 +77,6 @@
                   autocomplete="off"
                   name="year"
                   id="year"
-                  size="2"
                   maxlength="2"
                   placeholder="YY"
                 />
@@ -89,7 +89,6 @@
                 autocomplete="off"
                 name="cvc"
                 id="cvc"
-                size="3"
                 maxlength="3"
                 placeholder="e.g. 123"
               />
