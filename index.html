@@ -24,9 +24,7 @@
             <div class="header-card-main-header-2"></div>
           </div>
           <div class="header-card-main-number">
-            <p id="card-number">
-            0000 0000 0000 0000
-            </p>
+            <p id="card-number">0000 0000 0000 0000</p>
           </div>
           <div class="header-card-main-name">
             <p id="card-name">jane appleseed</p>
@@ -37,64 +35,73 @@
         </div>
       </header>
       <section class="form-container">
-        <form method="POST" class="form">
-          <div class="form-field" id="field-name">
-            <label for="cardholder">cardholder name</label>
-            <input
-              type="text"
-              name="cardholder"
-              id="cardholder"
-              placeholder="e.g. Jane Appleseed"
-              autocomplete="off"
-              maxlength="18"
-            />
-          </div>
-          <div class="form-field" id="field-number">
-            <label for="cardnumber">card number</label>
-            <input
-              type="text"
-              autocomplete="off"
-              name="cardnumber"
-              id="cardnumber"
-              maxlength="19"
-              placeholder="e.g. 1234 5678 9123 0000"
-            />
-          </div>
-          <div class="form-field-flex">
-            <div class="form-field">
-              <label for="month">exp. date (mm/yy)</label>
-              <div class="form-field-flex">
-                <input
-                  type="text"
-                  autocomplete="off"
-                  name="month"
-                  id="month"
-                  placeholder="MM"
-                  maxlength="2"
-                />
-                <input
-                  type="text"
-                  autocomplete="off"
-                  name="year"
-                  id="year"
-                  maxlength="2"
-                  placeholder="YY"
-                />
-              </div>
+        <section id="content">
+          <form class="form" id="form">
+            <div class="form-field" id="field-name">
+              <label for="cardholder">cardholder name</label>
+              <input
+                type="text"
+                name="cardholder"
+                id="cardholder"
+                placeholder="e.g. Jane Appleseed"
+                autocomplete="off"
+                maxlength="18"
+              />
+              <p class="form-field-error" id="field-name-error"></p>
             </div>
-            <div class="form-field">
-              <label for="cvc">cvc</label>
+            <div class="form-field" id="field-number">
+              <label for="cardnumber">card number</label>
               <input
                 type="text"
                 autocomplete="off"
-                name="cvc"
-                id="cvc"
-                maxlength="3"
-                placeholder="e.g. 123"
+                name="cardnumber"
+                id="cardnumber"
+                maxlength="19"
+                placeholder="e.g. 1234 5678 9123 0000"
               />
+              <p class="form-field-error" id="field-number-error"></p>
             </div>
-          </div>
-        </form>
+            <div class="form-field-flex">
+              <div class="form-field">
+                <label for="month">exp. date (mm/yy)</label>
+                <div class="form-field-flex">
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    name="month"
+                    id="month"
+                    placeholder="MM"
+                    maxlength="2"
+                  />
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    name="year"
+                    id="year"
+                    maxlength="2"
+                    placeholder="YY"
+                  />
+                </div>
+                <p class="form-field-error" id="field-date-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="cvc">cvc</label>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  name="cvc"
+                  id="cvc"
+                  maxlength="3"
+                  placeholder="e.g. 123"
+                />
+                <p class="form-field-error" id="field-cvc-error"></p>
+              </div>
+            </div>
+          </form>
+        </section>
+        <button type="submit" id="form-btn" class="form-container-btn">
+          Confirm
+        </button>
       </section>
     </div>
     <script type="module" src="/src/main.ts"></script>
