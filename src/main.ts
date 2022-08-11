@@ -91,7 +91,13 @@ inputYear.addEventListener("change", () => {
 const cardCvc: HTMLElement = getElementById("card-cvc");
 const cvcFieldError = getElementById("field-cvc-error");
 inputCvc.addEventListener("change", () => {
-  const value: string = inputCvc.value.trim() || "000";
+  const defaultCvcValue = "000";
+  const value: string = inputCvc.value.trim() || defaultCvcValue;
+  const valueParsed: number = parseInt(value);
+  const isValidCvcValue: boolean = !isNaN(valueParsed) && !(value.length < 3);
+
+  cvcFieldError.textContent = isValidCvcValue ? "" : "Wrong format";
+  inputCvc.style.border = isValidCvcValue ? defaultBorderStyle : commonInputBorderStyle;
   cardCvc.textContent = value;
 });
 
