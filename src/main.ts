@@ -60,22 +60,36 @@ cardNameInput.addEventListener("change", () => {
   cardName.textContent = isValidName ? value : defaultCardNameValue;
 });
 
+const dateFieldError: HTMLElement = getElementById("field-date-error");
+const defaultDateValue: string = "00";
+
 // CARD_MONTH:
 const cardMonth: HTMLElement = getElementById("card-month");
 inputMonth.addEventListener("change", () => {
-  const value: string = inputMonth.value.trim() || "00";
-  cardMonth.textContent = value;
+  const value: string = inputMonth.value.trim() || defaultDateValue;
+  const valueParsed: number = parseInt(value);
+  const isValidMonthValue: boolean = !isNaN(valueParsed) && !(value.length < 2) && !(valueParsed < 0) && !(valueParsed > 12);
+
+  dateFieldError.textContent = isValidMonthValue ? "" : "Wrong format";
+  inputMonth.style.border = isValidMonthValue ? defaultBorderStyle : commonInputBorderStyle;
+  cardMonth.textContent = isValidMonthValue ? value : defaultDateValue;
 });
 
 // CARD_YEAR:
 const cardYear: HTMLElement = getElementById("card-year");
 inputYear.addEventListener("change", () => {
   const value: string = inputYear.value.trim() || "00";
-  cardYear.textContent = value;
+  const valueParsed: number = parseInt(value);
+  const isValidYearValue: boolean = !isNaN(valueParsed) && !(value.length < 2);
+
+  dateFieldError.textContent = isValidYearValue ? "" : "Wrong format";
+  inputYear.style.border = isValidYearValue ? defaultBorderStyle : commonInputBorderStyle;
+  cardYear.textContent = isValidYearValue ? value : defaultDateValue;
 });
 
 // CARD_CVC:
 const cardCvc: HTMLElement = getElementById("card-cvc");
+const cvcFieldError = getElementById("field-cvc-error");
 inputCvc.addEventListener("change", () => {
   const value: string = inputCvc.value.trim() || "000";
   cardCvc.textContent = value;
