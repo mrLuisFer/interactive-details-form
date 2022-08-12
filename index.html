@@ -7,10 +7,7 @@
     <title>Interactive Details Form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="app">
@@ -28,9 +25,7 @@
           </div>
           <div class="header-card-main-name">
             <p id="card-name">jane appleseed</p>
-            <p>
-              <span id="card-month">00</span>/<span id="card-year">00</span>
-            </p>
+            <p><span id="card-month">00</span>/<span id="card-year">00</span></p>
           </div>
         </div>
       </header>
@@ -39,14 +34,7 @@
           <form class="form" id="form">
             <div class="form-field" id="field-name">
               <label for="cardholder">cardholder name</label>
-              <input
-                type="text"
-                name="cardholder"
-                id="cardholder"
-                placeholder="e.g. Jane Appleseed"
-                autocomplete="off"
-                maxlength="18"
-              />
+              <input type="text" name="cardholder" id="cardholder" placeholder="e.g. Jane Appleseed" autocomplete="off" maxlength="18" required />
               <p class="form-field-error" id="field-name-error"></p>
             </div>
             <div class="form-field" id="field-number">
@@ -58,6 +46,7 @@
                 id="cardnumber"
                 maxlength="19"
                 placeholder="e.g. 1234 5678 9123 0000"
+                required
               />
               <p class="form-field-error" id="field-number-error"></p>
             </div>
@@ -65,43 +54,20 @@
               <div class="form-field">
                 <label for="month">exp. date (mm/yy)</label>
                 <div class="form-field-flex">
-                  <input
-                    type="text"
-                    autocomplete="off"
-                    name="month"
-                    id="month"
-                    placeholder="MM"
-                    maxlength="2"
-                  />
-                  <input
-                    type="text"
-                    autocomplete="off"
-                    name="year"
-                    id="year"
-                    maxlength="2"
-                    placeholder="YY"
-                  />
+                  <input type="text" autocomplete="off" name="month" id="month" placeholder="MM" maxlength="2" required />
+                  <input type="text" autocomplete="off" name="year" id="year" maxlength="2" placeholder="YY" required />
                 </div>
                 <p class="form-field-error" id="field-date-error"></p>
               </div>
               <div class="form-field">
                 <label for="cvc">cvc</label>
-                <input
-                  type="text"
-                  autocomplete="off"
-                  name="cvc"
-                  id="cvc"
-                  maxlength="3"
-                  placeholder="e.g. 123"
-                />
+                <input type="text" autocomplete="off" name="cvc" id="cvc" maxlength="3" placeholder="e.g. 123" required />
                 <p class="form-field-error" id="field-cvc-error"></p>
               </div>
             </div>
+            <button type="submit" id="form-btn" class="form-container-btn">Confirm</button>
           </form>
         </section>
-        <button type="submit" id="form-btn" class="form-container-btn">
-          Confirm
-        </button>
       </section>
     </div>
     <script type="module" src="/src/main.ts"></script>

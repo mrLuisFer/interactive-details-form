@@ -11,9 +11,8 @@ const inputCvc = getElementById("cvc");
 const fieldName = getElementById("field-name");
 const fieldNumber = getElementById("field-number");
 
-const w: string = "50px";
-inputMonth.style.width = w;
-inputYear.style.width = w;
+inputMonth.style.width = "50px";
+inputYear.style.width = "50px";
 
 inputCvc.style.width = "150px";
 fieldName.style.width = "100%";
@@ -101,16 +100,39 @@ inputCvc.addEventListener("change", () => {
   cardCvc.textContent = value;
 });
 
-const formBtn: HTMLButtonElement = getElementById("form-btn");
-formBtn.addEventListener("click", () => {
+const form: HTMLFormElement = getElementById("form");
+
+// Submitted form elements
+const imgCompletedIcon: HTMLImageElement = document.createElement("img");
+imgCompletedIcon.classList.add("content-submitted-icon");
+imgCompletedIcon.setAttribute("src", "/images/icon-complete.svg");
+imgCompletedIcon.setAttribute("alt", "submitted");
+
+const contentTitle: HTMLParagraphElement = document.createElement("p");
+contentTitle.classList.add("content-submitted-title");
+contentTitle.textContent = "Thank you!";
+
+const contentText: HTMLParagraphElement = document.createElement("p");
+contentText.classList.add("content-submitted-text");
+contentText.textContent = "We've added your card details";
+
+const btnCompleted: HTMLButtonElement = document.createElement("button");
+btnCompleted.classList.add("form-container-btn");
+btnCompleted.textContent = "Continue";
+btnCompleted.setAttribute("id", "btn-completed");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   if (!inputNumberError && cardNumberInput.value !== defaultCardNumberValue && cardNumberInput.value !== "") {
-    const content: HTMLElement = getElementById("content");
-    content.innerHTML = `
-      <img class="content-submitted-icon" src="/images/icon-complete.svg" alt="submitted" />
-      <p class="content-submitted-title">Thank you!</p>
-      <p class="content-submitted-text">We've added your card details</p>
-    `;
-    const formBtn: HTMLButtonElement = getElementById("form-btn");
-    formBtn.textContent = "Continue";
+    const contentDiv: HTMLElement = getElementById("content");
+    contentDiv.innerHTML = "";
+    contentDiv.appendChild(imgCompletedIcon);
+    contentDiv.appendChild(contentTitle);
+    contentDiv.appendChild(contentText);
+    contentDiv.appendChild(btnCompleted);
   }
 });
+
+btnCompleted.addEventListener("click", () => {
+  console.log("continue")
+})
