@@ -121,10 +121,10 @@ btnCompleted.classList.add("form-container-btn");
 btnCompleted.textContent = "Continue";
 btnCompleted.setAttribute("id", "btn-completed");
 
+const contentDiv: HTMLElement = getElementById("content");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!inputNumberError && cardNumberInput.value !== defaultCardNumberValue && cardNumberInput.value !== "") {
-    const contentDiv: HTMLElement = getElementById("content");
     contentDiv.innerHTML = "";
     contentDiv.appendChild(imgCompletedIcon);
     contentDiv.appendChild(contentTitle);
@@ -134,5 +134,5 @@ form.addEventListener("submit", (e) => {
 });
 
 btnCompleted.addEventListener("click", () => {
-  console.log("continue")
-})
+  location.reload()
+});
