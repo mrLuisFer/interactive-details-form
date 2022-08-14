@@ -23,6 +23,7 @@ let inputNameError: boolean = false;
 let inputMonthError: boolean = false;
 let inputYearError: boolean = false;
 let inputCvcError: boolean = false;
+console.log(inputNameError, inputNumberError, inputMonthError, inputYearError, inputCvcError)
 
 const errorBorderColor: string = "#ff5b5b";
 const commonBorderColor: string = "var(--light-grayish-violet)";
