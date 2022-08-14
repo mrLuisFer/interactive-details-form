@@ -69,7 +69,13 @@ inputMonth.addEventListener("change", () => {
   const valueParsed: number = parseInt(value);
   const isValidMonthValue: boolean = !isNaN(valueParsed) && !(value.length < 2) && !(valueParsed < 0) && !(valueParsed > 12);
 
-  dateFieldError.textContent = isValidMonthValue ? "" : "Wrong format";
+  if (isNaN(valueParsed) && value.length < 2 && valueParsed < 0) {
+    dateFieldError.textContent = "Wrong format";
+  } else if (valueParsed > 12) {
+    dateFieldError.textContent = "Not greater than 12";
+  } else {
+    dateFieldError.textContent = "";
+  }
   inputMonth.style.border = isValidMonthValue ? defaultBorderStyle : commonInputBorderStyle;
   cardMonth.textContent = isValidMonthValue ? value : defaultDateValue;
 });
@@ -134,5 +140,5 @@ form.addEventListener("submit", (e) => {
 });
 
 btnCompleted.addEventListener("click", () => {
-  location.reload()
+  location.reload();
 });

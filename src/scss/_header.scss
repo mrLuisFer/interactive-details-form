@@ -1,23 +1,46 @@
 .header {
   min-height: 210px;
-  background: url("/images/bg-main-mobile.png");
-  position: relative;
+  background-image: url("/images/bg-main-mobile.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (min-width: 700px) {
+    background: url("/images/bg-main-desktop.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 250px;
+  }
+
+  &-container {
+    position: relative;
+    @media (min-width: 500px) {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
 
   &-card {
+    width: 300px;
+    height: 165px;
+
     &-back {
-      width: 300px;
       position: absolute;
       right: 10px;
       top: 1.5rem;
       background: url("/images/bg-card-back.png");
       border-radius: 10px;
-      height: 165px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       display: flex;
       align-items: center;
       justify-content: flex-end;
+
+      @media (min-width: 700px) {
+        top: 3rem;
+      }
 
       &-number {
         text-align: right;
@@ -29,17 +52,19 @@
     }
 
     &-main {
-      width: 300px;
-      height: 165px;
       background: url("/images/bg-card-front.png");
       position: absolute;
-      top: 6.65rem;
       left: 10px;
+      top: 6.65rem;
       border-radius: 10px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
       backdrop-filter: blur(4px);
+
+      @media (min-width: 700px) {
+        top: 8.1rem;
+      }
 
       &-header {
         margin: 1rem 1.5rem 2rem;
