@@ -20,8 +20,8 @@ fieldNumber.style.width = "100%";
 
 let inputNumberError: boolean = false;
 let inputNameError: boolean = false;
-const commonInputBorderStyle: string = "1px solid #ff5b5b";
-const defaultBorderStyle: string = "1px solid var(--light-grayish-violet)";
+const errorBorderColor: string = "#ff5b5b";
+const commonBorderColor: string = "var(--light-grayish-violet)";
 
 // CARD_NUMBER:
 const cardNumberInput: HTMLInputElement = getElementById("cardnumber");
@@ -40,7 +40,7 @@ cardNumberInput.addEventListener("change", () => {
   const isValidCardNumber = cardNumberRegex.test(valueFixed) && !inputNumberError;
 
   formNumberErrorMsg.textContent = isValidCardNumber ? "" : "Wrong format, numbers only";
-  cardNumberInput.style.border = isValidCardNumber ? defaultBorderStyle : commonInputBorderStyle;
+  cardNumberInput.style.borderColor = isValidCardNumber ? commonBorderColor : errorBorderColor;
   cardNumber.textContent = isValidCardNumber ? separateValue : defaultCardNumberValue;
 });
 
@@ -55,7 +55,7 @@ cardNameInput.addEventListener("change", () => {
   const isValidName: boolean = cardNameRegex.test(value);
 
   formNameErrorMsg.textContent = isValidName ? "" : "Wrong format";
-  cardNameInput.style.border = isValidName ? defaultBorderStyle : commonInputBorderStyle;
+  cardNameInput.style.borderColor = isValidName ? commonBorderColor : errorBorderColor;
   cardName.textContent = isValidName ? value : defaultCardNameValue;
 });
 
@@ -76,7 +76,7 @@ inputMonth.addEventListener("change", () => {
   } else {
     dateFieldError.textContent = "";
   }
-  inputMonth.style.border = isValidMonthValue ? defaultBorderStyle : commonInputBorderStyle;
+  inputMonth.style.borderColor = isValidMonthValue ? commonBorderColor : errorBorderColor;
   cardMonth.textContent = isValidMonthValue ? value : defaultDateValue;
 });
 
@@ -88,7 +88,7 @@ inputYear.addEventListener("change", () => {
   const isValidYearValue: boolean = !isNaN(valueParsed) && !(value.length < 2);
 
   dateFieldError.textContent = isValidYearValue ? "" : "Wrong format";
-  inputYear.style.border = isValidYearValue ? defaultBorderStyle : commonInputBorderStyle;
+  inputYear.style.borderColor = isValidYearValue ? commonBorderColor : errorBorderColor;
   cardYear.textContent = isValidYearValue ? value : defaultDateValue;
 });
 
@@ -102,7 +102,7 @@ inputCvc.addEventListener("change", () => {
   const isValidCvcValue: boolean = !isNaN(valueParsed) && !(value.length < 3);
 
   cvcFieldError.textContent = isValidCvcValue ? "" : "Wrong format";
-  inputCvc.style.border = isValidCvcValue ? defaultBorderStyle : commonInputBorderStyle;
+  inputCvc.style.borderColor = isValidCvcValue ? commonBorderColor : errorBorderColor;
   cardCvc.textContent = value;
 });
 

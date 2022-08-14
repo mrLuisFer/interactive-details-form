@@ -13,17 +13,30 @@
     min-height: 250px;
   }
 
+  @media (min-width: 1200px) {
+    min-height: 100vh;
+  }
+
   &-container {
     position: relative;
     @media (min-width: 500px) {
       max-width: 500px;
       margin: 0 auto;
     }
+
+    @media (min-width: 1200px) {
+      width: 100%;
+      min-height: 100vh;
+    }
   }
 
   &-card {
     width: 300px;
     height: 165px;
+
+    @media (min-width: 1200px) {
+      transform: scale(1.15);
+    }
 
     &-back {
       position: absolute;
@@ -40,6 +53,11 @@
 
       @media (min-width: 700px) {
         top: 3rem;
+      }
+
+      @media (min-width: 1200px) {
+        top: 55%;
+        right: -8rem;
       }
 
       &-number {
@@ -64,6 +82,11 @@
 
       @media (min-width: 700px) {
         top: 8.1rem;
+      }
+
+      @media (min-width: 1200px) {
+        top: 20%;
+        left: 8rem;
       }
 
       &-header {

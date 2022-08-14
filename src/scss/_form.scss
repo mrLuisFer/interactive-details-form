@@ -18,6 +18,10 @@
       padding-right: 6rem;
     }
 
+    @media (min-width: 1200px) {
+      max-width: 400px;
+    }
+
     &-btn {
       background: var(--dark-violet);
       color: var(--white);
@@ -63,6 +67,10 @@
         color: var(--dark-grayish-violet);
         opacity: 0.5;
         font-weight: 500;
+      }
+
+      &:focus {
+        border-color: var(--dark-violet);
       }
     }
 
