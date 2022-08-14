@@ -85,6 +85,12 @@
         align-items: flex-start;
         gap: 0.7rem;
       }
+
+      &-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
 
     &-error {
@@ -92,6 +98,15 @@
       margin: 0;
       font-size: 0.8rem;
       letter-spacing: 1px;
+      user-select: none;
+    }
+
+    &-extra {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      margin: 0;
+      color: var(--dark-grayish-violet);
+      user-select: none;
     }
   }
 }

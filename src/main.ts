@@ -20,6 +20,10 @@ fieldNumber.style.width = "100%";
 
 let inputNumberError: boolean = false;
 let inputNameError: boolean = false;
+let inputMonthError: boolean = false;
+let inputYearError: boolean = false;
+let inputCvcError: boolean = false;
+
 const errorBorderColor: string = "#ff5b5b";
 const commonBorderColor: string = "var(--light-grayish-violet)";
 
@@ -27,6 +31,7 @@ const commonBorderColor: string = "var(--light-grayish-violet)";
 const cardNumberInput: HTMLInputElement = getElementById("cardnumber");
 const cardNumber = getElementById("card-number");
 const defaultCardNumberValue: string = "0000 0000 0000 0000";
+const fieldNumberExtra = getElementById("field-number-extra");
 cardNumberInput.addEventListener("change", () => {
   const value: string = cardNumberInput.value.trim() || defaultCardNumberValue;
   const removeSpaces: string = value.replaceAll(" ", "").replace(/\s/g, "");
@@ -38,6 +43,10 @@ cardNumberInput.addEventListener("change", () => {
   const cardNumberRegex: RegExp = /^(?:[0-9]+$)/;
   inputNumberError = digits !== 16;
   const isValidCardNumber = cardNumberRegex.test(valueFixed) && !inputNumberError;
+  const isSameDefaultValue: boolean = separateValue === defaultCardNumberValue;
+
+  fieldNumberExtra.textContent = isSameDefaultValue ? "" : `${digits} digits`;
+  fieldNumberExtra.style.color = isValidCardNumber && digits === 16 && !isSameDefaultValue ? "#39e75f" : "var(--dark-grayish-violet)";
 
   formNumberErrorMsg.textContent = isValidCardNumber ? "" : "Wrong format, numbers only";
   cardNumberInput.style.borderColor = isValidCardNumber ? commonBorderColor : errorBorderColor;
@@ -128,15 +137,20 @@ btnCompleted.textContent = "Continue";
 btnCompleted.setAttribute("id", "btn-completed");
 
 const contentDiv: HTMLElement = getElementById("content");
+const formBtn: HTMLButtonElement = getElementById("form-btn");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (!inputNumberError && cardNumberInput.value !== defaultCardNumberValue && cardNumberInput.value !== "") {
-    contentDiv.innerHTML = "";
-    contentDiv.appendChild(imgCompletedIcon);
-    contentDiv.appendChild(contentTitle);
-    contentDiv.appendChild(contentText);
-    contentDiv.appendChild(btnCompleted);
-  }
+  formBtn.textContent = "Submitting...";
+
+  setTimeout(() => {
+    if (!inputNumberError && cardNumberInput.value !== defaultCardNumberValue && cardNumberInput.value !== "") {
+      contentDiv.innerHTML = "";
+      contentDiv.appendChild(imgCompletedIcon);
+      contentDiv.appendChild(contentTitle);
+      contentDiv.appendChild(contentText);
+      contentDiv.appendChild(btnCompleted);
+    }
+  }, 1000);
 });
 
 btnCompleted.addEventListener("click", () => {

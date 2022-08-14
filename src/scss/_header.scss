@@ -39,6 +39,10 @@
       transform: scale(1.15);
     }
 
+    @media (min-width: 1600px) {
+      transform: scale(1.2);
+    }
+
     &-back {
       position: absolute;
       right: 10px;
